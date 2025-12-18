@@ -1,5 +1,5 @@
 # Request latency percentiles using Prometheus histograms
-Emit Prometheus histogram metrics for request latency percentiles. 
+Emit Prometheus histogram metrics for request latency percentiles (P95 and P50).
 
 ## Implementation
 Javascript Prometheus client used: `prom-client`. The following are the steps:
@@ -14,7 +14,7 @@ const registry = new client.Registry();
 client.collectDefaultMetrics({ registry });
 ```
 
-<li> Add histogram for calculating latency in seconds of fib calculation method. Register histogram with Prometheus metric client registry.
+<li> Add histogram for calculating latency in secs of fib calculation method. Register histogram with Prometheus metric client registry.
 
 ```javascript
 // histogram for latency in seconds of fib calculation method
@@ -49,7 +49,7 @@ minikube-m02   Ready    <none>          2d5h   v1.34.0   192.168.49.3   <none>  
 minikube-m03   Ready    <none>          2d5h   v1.34.0   192.168.49.4   <none>        Ubuntu 22.04.5 LTS   6.6.87.2-microsoft-standard-WSL2   docker://28.4.0
 ```
 
-The deployment artifacts consists of: a deployment yaml for application, a service yaml for service and a third yaml file for service monitors to allow `Prometheus` to discover and scrape metrics from the app's `/metrics` endpoint. They can be found inside the `k8s` folder.
+The deployment artifacts consists of a deployment yaml for the app, a service yaml for the service and a third yaml file for the service monitor that allows `Prometheus` to discover and scrape metrics from the app's `/metrics` endpoint. The yaml files can be found inside the `k8s` folder.
 
 ![dashboard](./resources/dashboard.png)
 
@@ -61,7 +61,6 @@ Prometheus is set up via Kubernetes Prometheus operator using `helm`.
 
 ```shell
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
 helm install prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
 ```
 
