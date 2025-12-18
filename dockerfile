@@ -8,4 +8,4 @@ COPY . .
 
 EXPOSE 8300
 
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["node", "./src/index.js"]

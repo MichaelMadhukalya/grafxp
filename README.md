@@ -72,4 +72,4 @@ In the final step, set up Grafana dashboards to show histogram metrics for the a
 
 ![grafana](./resources/grafana.png)
 
-Overall `P95` latency for the fibnoccai number calculating api is around `~26 secs` whereas `P50` latency for the same is around `~0.03 secs` - which means the data points consists of a few large outliers.
+Overall `P95` latency for the fibnoccai number calculating api is around `~26 secs` whereas `P50` latency for the same is around `~0.033 secs` - which means the data points consists of a few large outliers.
