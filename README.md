@@ -14,7 +14,7 @@ const registry = new client.Registry();
 client.collectDefaultMetrics({ registry });
 ```
 
-<li> Add histogram for calculating latency in seconds of fib calculation method. register histogram with Prometheus metric client registry
+<li> Add histogram for calculating latency in seconds of fib calculation method. Register histogram with Prometheus metric client registry.
 
 ```javascript
 // histogram for latency in seconds of fib calculation method
