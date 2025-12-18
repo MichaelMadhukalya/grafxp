@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellojs-service
+  namespace: default
+  labels:
+    app: hellojs
+spec:
+  selector:
+    app: hellojs
+  ports:
+  - name: metrics
+    protocol: TCP
+    port: 8080
+    targetPort: 8300
+    nodePort: 30100
+  type: NodePort
+  sessionAffinity: None

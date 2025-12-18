@@ -1,0 +1,16 @@
+{
+  "name": "hellojs",
+  "version": "1.0.0",
+  "description": "Simple hello app in Javascript for k8s test",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "log4js": "6.9.1",
+    "prom-client": "15.1.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
