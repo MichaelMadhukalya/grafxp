@@ -39,13 +39,14 @@ app.get('/api/v1/fib/:num', (req, res) => {
 ```
 
 ## Kubernetes (k8s) deployment
-The project is deployed using a 3-node local `minikube` cluster. 
+The project is deployed on a 3-node local `minikube` cluster set up on a `docker` runtime using `WSL` version 2. 
 
 ```shell
-m_mad@Ryzen7:~$ minikube node list
-minikube        192.168.49.2
-minikube-m02    192.168.49.3
-minikube-m03    192.168.49.4
+m_mad@Ryzen7:~$ kubectl get nodes -o wide
+NAME           STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION                     CONTAINER-RUNTIME
+minikube       Ready    control-plane   2d5h   v1.34.0   192.168.49.2   <none>        Ubuntu 22.04.5 LTS   6.6.87.2-microsoft-standard-WSL2   docker://28.4.0
+minikube-m02   Ready    <none>          2d5h   v1.34.0   192.168.49.3   <none>        Ubuntu 22.04.5 LTS   6.6.87.2-microsoft-standard-WSL2   docker://28.4.0
+minikube-m03   Ready    <none>          2d5h   v1.34.0   192.168.49.4   <none>        Ubuntu 22.04.5 LTS   6.6.87.2-microsoft-standard-WSL2   docker://28.4.0
 ```
 
 The deployment artifacts consists of: a deployment yaml for application, a service yaml for service and a third yaml file for service monitors to allow `Prometheus` to discover and scrape metrics from the app's `/metrics` endpoint. They can be found inside the `k8s` folder.
