@@ -57,13 +57,6 @@ The docker image for the app is available at:
 [image](https://hub.docker.com/repository/docker/mmadhukalya/hellojs/general)
 
 ## Monitoring using Prometheus and Grafana
-Prometheus is set up via Kubernetes Prometheus operator using `helm`. 
-
-```shell
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install prometheus-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
-```
-
 Ensure that Prometheus targets show the scrapping endpoint of the app. 
 
 ![prometheus](./resources/prom-targets.png)
