@@ -39,7 +39,7 @@ app.get('/api/v1/fib/:num', (req, res) => {
 ```
 
 ## Kubernetes (k8s) deployment
-The project is deployed on a 3-node local `minikube` cluster set up on a `docker` runtime using `WSL` version 2. 
+The project is deployed on a 3-node local `minikube` cluster set up on a `docker` runtime using `WSL` version 2. An `ArgoCD` pipeline is set up for deployment that watches the `kustomize` folder for the mainfest file changes to deploy to `minikube`.
 
 ```shell
 m_mad@Ryzen7:~$ kubectl get nodes -o wide
