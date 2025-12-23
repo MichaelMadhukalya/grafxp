@@ -3,14 +3,14 @@ kind: Application
 metadata:
   name: hellojs-argocd
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-options: "Timeout=180"
 spec:
   project: default
   source:
     repoURL: https://github.com/MichaelMadhukalya/grafxp
     targetRevision: HEAD
-    path: /kustomize
-    kustomize:
-      version: v3.5.4
+    path: kustomize
   destination:
     namespace: default
     server: https://kubernetes.default.svc
