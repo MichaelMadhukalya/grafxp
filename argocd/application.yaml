@@ -5,12 +5,15 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-options: "Timeout=180"
+    argocd-image-updater.argoproj.io/image-list: hellojs=mmadhukalya/hellojs
+    argocd-image-updater.argoproj.io/hellojs.update-strategy: latest
 spec:
   project: default
   source:
     repoURL: https://github.com/MichaelMadhukalya/grafxp
     targetRevision: HEAD
     path: kustomize
+    kustomize: {}
   destination:
     namespace: default
     server: https://kubernetes.default.svc
